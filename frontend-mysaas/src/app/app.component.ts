@@ -16,7 +16,6 @@ import { trigger, transition, style, animate, group, animateChild, query } from 
 
 import { ThemeService } from './shared/service/theme.service';
 import { Toolbar } from './shared/components/toolbar/toolbar.component';
-import { WebsocketService } from './shared/service/websocket.service';
 import { environment } from '../environments/environment';
 
 export const slideInAnimation =
@@ -76,7 +75,7 @@ export class AppComponent implements AfterViewChecked {
 
   constructor(private contexts: ChildrenOutletContexts,
     private themeService: ThemeService,
-    private socketService: WebsocketService,
+
     private keycloakService: KeycloakService, private router: Router, private breakpointObserver: BreakpointObserver, private cdr: ChangeDetectorRef) {
     this.router.events.pipe(
       filter((event) => event instanceof NavigationEnd)
@@ -101,7 +100,7 @@ export class AppComponent implements AfterViewChecked {
       this.username = userDetails.username;
       const userId = userDetails.id;
       let email: string = userDetails.email!;
-      this.socketService.registerUser(email);
+
 
       this.setupTokenRefresh();
 
