@@ -1,0 +1,74 @@
+<mat-card class="settings-account">
+    <h2>Perfil</h2>
+    <p>As informações a seguir são exibidas publicamente. Tenha cuidado!</p>
+
+    <mat-form-field appearance="outline" style="width: 100%; margin-bottom: 16px;">
+        <mat-label>Nome</mat-label>
+        <mat-icon matPrefix>person</mat-icon>
+        <input matInput placeholder="Nome" [(ngModel)]="profile.name" />
+    </mat-form-field>
+
+    <div style="display: flex; gap: 16px;">
+        <mat-form-field appearance="outline" style="flex: 1;">
+            <mat-label>Nome de usuário</mat-label>
+            <span matPrefix>mysaas.com/</span>
+            <input matInput [(ngModel)]="profile.username" />
+        </mat-form-field>
+    </div>
+
+    <div style="display: flex; gap: 16px; margin-top: 16px;">
+        <mat-form-field appearance="outline" style="flex: 1;">
+            <mat-label>Cargo</mat-label>
+            <mat-icon matPrefix>work</mat-icon>
+            <input matInput [(ngModel)]="profile.title" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" style="flex: 1;">
+            <mat-label>Empresa</mat-label>
+            <mat-icon matPrefix>business</mat-icon>
+            <input matInput [(ngModel)]="profile.company" />
+        </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline" style="width: 100%; margin-top: 16px;">
+        <mat-label>Sobre</mat-label>
+        <textarea matInput rows="4" [(ngModel)]="profile.about"></textarea>
+        <mat-hint>Descrição breve para o seu perfil. HTML básico e emojis são permitidos.</mat-hint>
+    </mat-form-field>
+
+    <h3 style="margin-top: 32px;">Informações Pessoais</h3>
+    <p>Detalhes de comunicação caso queiramos entrar em contato com você. Essas informações serão mantidas privadas.</p>
+
+    <div style="display: flex; gap: 16px; margin-top: 16px;">
+        <mat-form-field appearance="outline" style="flex: 1;">
+            <mat-label>Email</mat-label>
+            <mat-icon matPrefix>email</mat-icon>
+            <input matInput [(ngModel)]="profile.email" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" style="flex: 1;">
+            <mat-label>Telefone</mat-label>
+            <mat-icon matPrefix>phone</mat-icon>
+            <input matInput [(ngModel)]="profile.phone" />
+        </mat-form-field>
+    </div>
+
+    <!-- <div style="display: flex; gap: 16px; margin-top: 16px;">
+        <mat-form-field appearance="outline" style="flex: 1;">
+            <mat-label>País</mat-label>
+            <mat-icon matPrefix>public</mat-icon>
+            <input matInput [(ngModel)]="profile.country" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" style="flex: 1;">
+            <mat-label>Idioma</mat-label>
+            <mat-icon matPrefix>translate</mat-icon>
+            <input matInput [(ngModel)]="profile.language" />
+        </mat-form-field>
+    </div> -->
+
+    <div class="actions">
+        <button mat-button color="warn">Cancelar</button>
+        <button mat-raised-button color="primary">Salvar</button>
+    </div>
+</mat-card>

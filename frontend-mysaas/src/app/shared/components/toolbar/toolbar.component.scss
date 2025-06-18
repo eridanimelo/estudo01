@@ -1,0 +1,44 @@
+/* Estilo para o Menu do Usuário */
+.user-menu-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.user-profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+
+
+.mat-menu-item {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    padding: 10px 20px;
+}
+
+.mat-menu-item mat-icon {
+    margin-right: 10px;
+}
+
+
+
+.user-name {
+    font-weight: bold;
+    max-width: 200px;
+    /* Ajusta o máximo de largura para evitar quebra */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Para truncar se o nome for muito longo */
+    white-space: nowrap;
+}
+
+.user-name-dark {
+    color: white !important;
+}

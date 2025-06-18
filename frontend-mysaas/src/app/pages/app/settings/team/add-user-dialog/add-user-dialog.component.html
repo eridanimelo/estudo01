@@ -1,0 +1,55 @@
+<div class="form-user-container">
+    <h2 mat-dialog-title>New User</h2><br />
+    <mat-dialog-content>
+        <form [formGroup]="userForm" (ngSubmit)="createUser()" class="user-form">
+            <!-- Username -->
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Username</mat-label>
+                <input matInput formControlName="username" required />
+                @if (userForm.get('username')?.hasError('required')) {
+                <mat-error>Username is required</mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" type="email" required />
+                @if (userForm.get('email')?.hasError('required')) {
+                <mat-error>Email is required</mat-error>
+                }
+                @if (userForm.get('email')?.hasError('email')) {
+                <mat-error>Please enter a valid email</mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" type="password" required />
+                @if (userForm.get('password')?.hasError('required')) {
+                <mat-error>Password is required</mat-error>
+                }
+                @if (userForm.get('password')?.hasError('minlength')) {
+                <mat-error>Password must be at least 6 characters</mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Confirm Password</mat-label>
+                <input matInput formControlName="confirmPassword" type="password" required />
+                @if (userForm.get('confirmPassword')?.hasError('required')) {
+                <mat-error>Confirm Password is required</mat-error>
+                }
+                @if (userForm.hasError('passwordsMismatch')) {
+                <mat-error>Passwords do not match</mat-error>
+                }
+            </mat-form-field>
+
+            <div class="button-container">
+                <button mat-raised-button color="primary" type="submit" [disabled]="userForm.invalid">
+                    Create User
+                </button>
+                <button mat-raised-button color="warn" type="button" (click)="onCancel()">Cancel</button>
+            </div>
+        </form>
+    </mat-dialog-content>
+</div>

@@ -1,0 +1,21 @@
+// _layout.scss
+.layout {
+    width: auto;
+    height: 100vh;
+}
+
+.main-content {
+
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+    background-color: var(--background-color);
+    overflow-y: auto;
+}
+
+.p-20 {
+    padding: 20px;
+}

@@ -1,0 +1,61 @@
+<mat-toolbar class="custom-toolbar">
+    <button mat-icon-button aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>My App</span>
+    <span class="app-spacer"></span>
+
+    <button mat-icon-button aria-label="Toggle fullscreen" (click)="toggleFullscreen()">
+        <mat-icon>{{ isFullscreen ? 'fullscreen_exit' : 'fullscreen' }}</mat-icon>
+    </button>
+
+    <button mat-icon-button aria-label="Alert notifications" (click)="onAlertClick()"
+        [matMenuTriggerFor]="notificationMenu">
+        <mat-icon [matBadge]="notifications.length">notifications</mat-icon>
+
+    </button>
+
+    <mat-menu #notificationMenu="matMenu">
+        <ng-container *ngIf="notifications.length > 0; else noNotifications">
+            <button mat-menu-item *ngFor="let notification of notifications">
+                <mat-icon>info</mat-icon>
+                <span>{{ notification }}</span>
+            </button>
+        </ng-container>
+        <ng-template #noNotifications>
+            <button mat-menu-item disabled>
+                <mat-icon>check</mat-icon>
+                <span>No new notifications</span>
+            </button>
+        </ng-template>
+    </mat-menu>
+
+    <button mat-icon-button aria-label="Toggle theme" (click)="toggleTheme()">
+        <mat-icon>{{ isDarkTheme ? 'brightness_7' : 'brightness_4' }}</mat-icon>
+    </button>
+
+    <div [matMenuTriggerFor]="userMenu" aria-label="User profile">
+        <img [src]="userProfileImage || 'https://via.placeholder.com/150'" alt="User Profile" class="profile-pic" />
+    </div>
+
+    <mat-menu #userMenu="matMenu">
+        <div class="user-menu-header">
+
+            <img [src]="userProfileImage || 'https://via.placeholder.com/150'" alt="User Profile"
+                class="user-profile-pic" />
+
+            <div class="user-name" [ngClass]="{'user-name-dark': isDarkTheme}">
+                <small>{{ username }}</small>
+            </div>
+        </div>
+
+        <button mat-menu-item [routerLink]="'/app/settings'">
+            <mat-icon>settings</mat-icon>
+            <span>Settings</span>
+        </button>
+        <button mat-menu-item (click)="onLogout()">
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span>
+        </button>
+    </mat-menu>
+</mat-toolbar>

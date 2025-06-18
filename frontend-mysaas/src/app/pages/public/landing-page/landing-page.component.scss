@@ -1,0 +1,547 @@
+$text-color: white;
+$primary-color-land: #1d5175;
+$secondary-color: #ffd700;
+$accent-color: #ed8828;
+$background-color: #fff;
+$gray-color: #666;
+$light-gray-color: #e1e1e1;
+$dark-gray-color: #333;
+$cta-button-color: #ffcc00;
+$hero-background-color: #cdddf6;
+$pricing-background-color: #f7f9fc;
+$footer-text-color: #d1d1d1;
+
+
+
+$main-footer-color: #1d5175;
+$main-footer-text-color: white;
+
+$font-family: 'Arial', sans-serif;
+
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 25px;
+    transition: background-color 0.3s;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+}
+
+/* Navbar */
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $primary-color-land ;
+    color: $text-color;
+    padding: 15px 20px;
+}
+
+.navbar .logo h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar .menu {
+    display: flex;
+    gap: 15px;
+}
+
+.navbar .menu li a {
+    color: $text-color;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.navbar .menu li a:hover {
+    color: $secondary-color;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.auth-buttons button {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    background-color: $text-color;
+    color: $primary-color-land ;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.auth-buttons .login-button:hover {
+    background-color: $light-gray-color;
+}
+
+.auth-buttons .signup-button {
+    background-color: $accent-color;
+    color: $text-color;
+}
+
+.auth-buttons .signup-button:hover {
+    background-color: $primary-color-land ;
+    color: $text-color;
+}
+
+/* Estilos para o cabeçalho fixo */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: $background-color;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.main-header .navbar {
+    padding: 10px 20px;
+}
+
+/* Responsividade */
+.hamburger-menu {
+    display: none;
+    /* Inicialmente escondido */
+    cursor: pointer;
+}
+
+.hamburger-icon {
+    font-size: 30px;
+    color: $text-color;
+}
+
+/* Em telas pequenas, exibe o ícone de hambúrguer */
+@media (max-width: 768px) {
+    .logo-land img {
+        width: 50px;
+        display: block;
+        border-radius: 10px;
+    }
+
+    .navbar .menu {
+        display: none;
+        /* Esconde o menu em telas pequenas */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        left: 0;
+        background-color: $primary-color-land ;
+        padding: 15px;
+        border-radius: 5px;
+    }
+
+    .navbar .menu li {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .navbar .auth-buttons {
+        display: none;
+        /* Esconde os botões de autenticação em telas pequenas */
+    }
+
+    /* Mostra o ícone de hambúrguer em telas pequenas */
+    .hamburger-menu {
+        display: block;
+    }
+
+    /* Exibe o menu quando a classe "show" for adicionada */
+    .navbar .menu.show {
+        display: flex;
+    }
+}
+
+
+/* Estilos para o cabeçalho fixo */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: background-color;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.main-header .navbar {
+    padding: 10px 20px;
+}
+
+
+
+/* Define a animação de cores */
+@keyframes backgroundColorAnimation {
+    0% {
+        background-color: #6481a3;
+        /* Cor azul inicial */
+    }
+
+    50% {
+        background-color: #5a6f88;
+        /* Cor azul mais clara no meio */
+    }
+
+    100% {
+        background-color: #73b0e9;
+        /* Volta para o azul original */
+    }
+}
+
+/* Estilos da .inicio-section */
+.inicio-section {
+    color: $text-color;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0 20px;
+    animation: backgroundColorAnimation 5s infinite alternate;
+    /* Aplica a animação de fundo */
+}
+
+
+.inicio-section h1 {
+    font-size: 3rem;
+    /* Tamanho maior para o título */
+    margin-bottom: 20px;
+    /* Espaço abaixo do título */
+}
+
+.inicio-section p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    /* Espaço abaixo do parágrafo */
+}
+
+.cta-button {
+    background-color: $cta-button-color;
+    /* Cor de fundo para o botão */
+    color: $text-color;
+    font-size: 1rem;
+}
+
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: $hero-background-color;
+    color: #6481a3;
+
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: $gray-color;
+}
+
+.hero-section .cta-button {
+    background-color: $primary-color-land ;
+    color: $text-color;
+    padding: 12px 25px;
+    font-size: 1rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.hero-section .cta-button:hover {
+    background-color: $secondary-color;
+    color: $primary-color-land ;
+}
+
+/* Pricing Section */
+.land-container {
+    text-align: center;
+    padding: 20px;
+    background-color: $pricing-background-color;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    color: $dark-gray-color;
+    margin-bottom: 10px;
+}
+
+.header p {
+    color: $gray-color;
+    font-size: 1rem;
+}
+
+.toggle-plan {
+    margin: 20px 0;
+}
+
+.toggle-plan button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 1rem;
+    border: 2px solid $primary-color-land ;
+    background: none;
+    color: $primary-color-land ;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.toggle-plan button.active {
+    background-color: $primary-color-land ;
+    color: $text-color;
+}
+
+.pricing-plans {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 40px 0;
+}
+
+.plan-card {
+    background-color: $text-color;
+    border: 1px solid $light-gray-color;
+    border-radius: 16px;
+    padding: 20px;
+    width: 280px;
+    text-align: left;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.plan-card h3 {
+    color: $primary-color-land ;
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+.plan-card .tagline {
+    color: $gray-color;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.plan-card .price {
+    color: $dark-gray-color;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.plan-card button {
+    background-color: $primary-color-land ;
+    color: $text-color;
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.plan-card ul li {
+    display: flex;
+    align-items: center;
+    color: $gray-color;
+    font-size: 0.9rem;
+    margin: 8px 0;
+}
+
+.plan-card ul li .checkmark {
+    color: #4caf50;
+    margin-right: 10px;
+}
+
+/* Footer */
+.destaque-section {
+    text-align: center;
+    background-color: $primary-color-land ;
+    color: $text-color;
+    padding: 30px;
+    border-radius: 16px;
+    margin-top: 20px;
+}
+
+.destaque-section button {
+    background-color: $text-color;
+    color: $primary-color-land ;
+    padding: 10px 20px;
+    font-size: 1rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.destaque-section button:hover {
+    background-color: $secondary-color;
+    color: $text-color;
+}
+
+
+.contact-section {
+    text-align: center;
+    background-color: $primary-color-land ;
+    color: $text-color;
+    padding: 50px 20px;
+
+
+}
+
+.contact-section button {
+    background-color: $text-color;
+    color: $primary-color-land ;
+    padding: 10px 20px;
+    font-size: 1rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.contact-section button:hover {
+    background-color: $secondary-color;
+    color: $text-color;
+}
+
+.contact-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.contact-section p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+
+}
+
+/* Footer */
+.main-footer {
+    background-color: $main-footer-color ;
+    color: $main-footer-text-color;
+    padding: 30px 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.footer-logo img {
+    width: 150px;
+    border-radius: 10px;
+}
+
+.footer-logo {
+
+    justify-content: center;
+    /* Certifique-se de que a altura está definida */
+    text-align: center;
+    /* Apenas por garantia, se for necessário */
+}
+
+.footer-logo p {
+    color: $footer-text-color;
+    font-size: 1rem;
+}
+
+.footer-links h3,
+.footer-contact h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 5px;
+}
+
+.footer-links ul li a {
+    color: $text-color;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+    color: $secondary-color;
+}
+
+.footer-contact p {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.footer-contact a {
+    color: $text-color;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.footer-contact a:hover {
+    color: $secondary-color;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid #ffffff33;
+    padding-top: 10px;
+    font-size: 0.9rem;
+    color: #d1d1d1;
+}
+
+.whatsapp-icon {
+    color: #25D366;
+    font-size: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.phone-link {
+    color: $text-color;
+    /* Deixa o texto branco */
+    font-weight: bold;
+    /* Deixa o texto em negrito */
+    text-decoration: none;
+    /* Remove o sublinhado do link */
+}
+
+.phone-link .phone-number {
+    color: $text-color;
+}

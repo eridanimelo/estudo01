@@ -1,0 +1,40 @@
+@use 'sass:color';
+@use '../../../../styles/variables' as *;
+
+$primary-color-land: $my_primary;
+
+.create-user-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: $primary-color-land;
+}
+
+.form-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    align-items: center;
+}
+
+.full-width {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.submit-button {
+    width: 100%;
+}
+
+.form-card::before {
+    content: '';
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+}

@@ -1,0 +1,296 @@
+@use 'sass:color';
+@use '../styles/variables' as *;
+
+/* ===================
+   Estilo Geral do Menu
+   =================== */
+.logout-button {
+    padding: 20px;
+}
+
+.navmen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    li {
+        margin: 10px 0;
+    }
+}
+
+/* ========================
+   Links do Menu Principal
+   ======================== */
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: 400;
+    border-radius: 6px;
+    color: #333;
+    background: linear-gradient(90deg, #ffffff, #f0f0f0);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: linear-gradient(90deg, #e0e0e0, #f8f8f8);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    &.active {
+        background: $my-primary;
+        color: white;
+    }
+}
+
+/* Ícones do Menu */
+.menu-icon {
+    margin-left: 8px;
+    font-size: 1.2em;
+    color: inherit;
+}
+
+/* ========================
+   Links do Submenu - Ativo
+   ======================== */
+
+
+
+/* ========================
+   Links do Submenu
+   ======================== */
+.submenu {
+    margin: 5px 0 0;
+    padding-left: 20px;
+    background: #f9f9f9;
+    border-left: 3px solid #e0e0e0;
+
+    .submenu-item {
+        display: block;
+        padding: 8px 12px;
+        text-decoration: none;
+        font-size: 0.9em;
+        font-weight: 400;
+        color: #666;
+        border-radius: 4px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+
+        &:hover {
+            background: #e8e8e8;
+            color: #333;
+        }
+    }
+
+    .submenu-item.active {
+        background: #d0d0d0;
+        color: #333;
+    }
+}
+
+/* =====================
+   Botão de Logout
+   ===================== */
+.logout-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    background: #737a7e;
+
+    mat-icon {
+        margin-right: 8px;
+    }
+
+    &:hover {
+        background: #d32f2f;
+    }
+}
+
+/* ========================
+   Ajuste na Logo
+   ======================== */
+.logo img {
+    width: 150px;
+
+    height: auto;
+    display: block;
+    margin: 20px auto 20px;
+    border-radius: 20px;
+    /* Adiciona bordas arredondadas */
+    // box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    /* Adiciona sombra para profundidade */
+    transition: box-shadow 0.3s ease;
+    /* Suaviza a animação ao passar o mouse */
+}
+
+.logo img:hover {
+    padding: 10px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+    /* Sombra mais intensa ao passar o mouse */
+}
+
+
+
+.logo2 {
+    position: absolute;
+    bottom: 0;
+    background: $my-primary;
+    height: 60px;
+}
+
+.logo2 img {
+    background: $my-primary;
+    margin: 10px auto 20px;
+    width: 90%;
+    height: auto;
+    display: block;
+    border-radius: 7px;
+    z-index: 1000;
+    bottom: 0;
+}
+
+
+.logo-land img {
+    width: 120px;
+    display: block;
+    border-radius: 10px;
+}
+
+.sidenav {
+    width: 250px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.mat-drawer.sidenav {
+    width: 250px;
+
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.sidenav.opened {
+    opacity: 1;
+    /* Fundo sólido ao abrir */
+    z-index: 1000;
+    /* Garantir que fique acima de outros elementos */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    /* Sombra de destaque */
+}
+
+.sidenav.closed {
+    opacity: 0;
+    /* Torna transparente */
+    pointer-events: none;
+    /* Desabilita interações quando fechado */
+}
+
+/* ===================
+   Estilo Geral do Menu
+   =================== */
+.dark-theme .navmen {
+    padding: 10px;
+
+    ul {
+        li {
+            .menu-item {
+                background: linear-gradient(90deg, #333, #444);
+                color: #fff;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+                &:hover {
+                    background: linear-gradient(90deg, #444, #555);
+                    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+                }
+
+                &.active {
+                    background: $my_primary;
+                    color: white;
+                }
+            }
+
+            .submenu {
+                background: #2a2a2a;
+                border-left: 3px solid #555;
+
+                .submenu-item {
+                    background: #333;
+                    color: #ddd;
+
+                    &:hover {
+                        background: #444;
+                        color: #fff;
+                    }
+                }
+
+                .submenu-item.active {
+                    border: 1px solid white;
+                    color: #f3f3f3;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+/* =====================
+   Botão de Logout
+   ===================== */
+.dark-theme .logout-link {
+    background: #737a7e;
+    color: white;
+
+    &:hover {
+        background: #d32f2f;
+    }
+}
+
+/* ========================
+   Ajuste na Logo
+   ======================== */
+.dark-theme .logo img {
+    filter: brightness(0.8);
+}
+
+/* =====================
+   Modo Dark Geral
+   ===================== */
+.dark-theme {
+    .sidenav {
+        background-color: #24292e;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .sidenav.opened {
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.8);
+    }
+
+    .sidenav.closed {
+        background-color: #1e1e1e;
+    }
+
+    mat-divider {
+        border-color: #555;
+    }
+}

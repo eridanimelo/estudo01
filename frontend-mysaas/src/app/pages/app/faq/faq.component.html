@@ -1,0 +1,44 @@
+<div class="p-20">
+
+    <div class="actions">
+        <h2>Gerenciamento de FAQs</h2>
+        <button mat-raised-button color="primary" (click)="openCreateDialog()">Novo FAQ</button>
+    </div>
+
+    <mat-card>
+        <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+            <!-- ID -->
+            <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+                <mat-cell *matCellDef="let faq">{{ faq.id }}</mat-cell>
+            </ng-container>
+
+            <!-- Título -->
+            <ng-container matColumnDef="question">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Título</mat-header-cell>
+                <mat-cell *matCellDef="let faq">{{ faq.question }}</mat-cell>
+            </ng-container>
+
+            <!-- Ações -->
+            <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef>Ações</mat-header-cell>
+                <mat-cell *matCellDef="let faq">
+                    <button mat-icon-button color="primary" (click)="openEditDialog(faq)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" (click)="deleteFAQ(faq.id)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-cell>
+            </ng-container>
+
+            <!-- Cabeçalhos -->
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <!-- Linhas -->
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons
+            (page)="onPageChange($event)"></mat-paginator>
+    </mat-card>
+</div>

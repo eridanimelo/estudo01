@@ -1,0 +1,104 @@
+services:
+  keycloak:
+    container_name: keycloakestudo01
+    image: quay.io/keycloak/keycloak:26.0.7
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+      - KEYCLOAK_DB=postgres
+      - KEYCLOAK_DB_URL=jdbc:postgresql://db1:5432/keycloak
+      - KEYCLOAK_DB_USERNAME=keycloak
+      - KEYCLOAK_DB_PASSWORD=keycloak_password
+      - KC_THEME=tema
+      - MAILHOG_SMTP_HOST=mailhog:1025
+      - MAILHOG_HTTP_HOST=mailhog:8025
+    command: start-dev
+    ports:
+      - 8081:8080
+    depends_on:
+      - db1
+      - db2
+      - mailhog
+    volumes:
+      - ./keycloak_data:/opt/keycloak/data
+      - ./keycloak-theme/themes:/opt/keycloak/themes
+    deploy:
+      resources:
+        limits:
+          memory: 256m
+    networks:
+      - minha_rede
+
+  db1:
+    image: postgres:17
+    container_name: postgresestudo01
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: keycloak_password
+      POSTGRES_DB: keycloak
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          memory: 256m
+    networks:
+      - minha_rede
+
+  db2:
+    image: postgres:17
+    container_name: postgresestudo02
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: myapp_user
+      POSTGRES_PASSWORD: myapp_password
+      POSTGRES_DB: myapplication
+    volumes:
+      - ./postgres-data2:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          memory: 256m
+    networks:
+      - minha_rede
+
+  mailhog:
+    container_name: mailhog
+    image: mailhog/mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+    deploy:
+      resources:
+        limits:
+          memory: 256m
+    networks:
+      - minha_rede
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+    deploy:
+      resources:
+        limits:
+          memory: 256m
+    networks:
+      - minha_rede
+
+volumes:
+  keycloak_data:
+    driver: local
+  postgres-data:
+    driver: local
+  postgres-data2:
+    driver: local
+
+networks:
+  minha_rede:
+    driver: bridge

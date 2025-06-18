@@ -1,0 +1,33 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/myapplication
+    username: myapp_user
+    password: myapp_password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        envers:
+          enabled: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8081/realms/user-api
+
+keycloak:
+  server:
+    url: http://localhost:8081
+  realm: user-api 
+  client:
+    id: admin-cli # Client ID Keycloak
+    secret: M6zMl5BnpoiXIoa1Ab36TS5SMFQgoILe
+  admin-username: admin
+  admin-password: admin

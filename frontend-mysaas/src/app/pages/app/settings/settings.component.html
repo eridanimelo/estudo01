@@ -1,0 +1,67 @@
+<div class="settingmy">
+    <mat-drawer-container>
+        <!-- Drawer -->
+
+        <mat-drawer #drawer class="sidenav" [class.opened]="drawer.opened" [class.closed]="!drawer.opened"
+            [mode]="isHandset ? 'over' : 'side'" [opened]="!isHandset || isSidenavOpened">
+            <!-- Header -->
+            <div class="drawer-header">
+                <!-- Title -->
+                <div class="drawer-title">
+                    <h2>Configurações</h2>
+                </div>
+
+            </div>
+
+            <!-- Panel links -->
+            <div class="panel-links">
+                @for (panel of panels; track trackByFn($index, panel)) {
+                <div (click)="goToPanel(panel.id)" class="panel-link">
+
+                    <div class="panel-title">
+                        {{ panel.title }}
+                    </div>
+                    <div class="panel-description text-secondary mt-0.5">
+                        {{ panel.description }}
+                    </div>
+                </div>
+                }
+            </div>
+        </mat-drawer>
+
+        <!-- Drawer content -->
+        <mat-drawer-content>
+
+            <button mat-icon-button (click)="drawer.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+
+            <!-- Load settings panel -->
+            <div class="settings-panel">
+                @switch (selectedPanel) {
+
+                <!-- Account -->
+                @case ('avatar') {
+                <app-avatar></app-avatar>
+                }
+                <!-- Account -->
+                @case ('account') {
+                <settings-account></settings-account>
+                }
+                <!-- Security -->
+                @case ('security') {
+                <settings-security></settings-security>
+                }
+
+                <!-- Team -->
+                @case ('team') {
+                <settings-team></settings-team>
+                }
+                }
+
+            </div>
+
+
+        </mat-drawer-content>
+    </mat-drawer-container>
+</div>

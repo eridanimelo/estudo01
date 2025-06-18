@@ -1,0 +1,46 @@
+<mat-card class="security-container">
+
+    <h1>Segurança</h1>
+
+    <div class="section">
+        <h2>Altere sua senha</h2>
+        <p>Você só pode alterar sua senha duas vezes em 24 horas!</p>
+
+        <form [formGroup]="passwordForm">
+
+
+
+            <mat-form-field appearance="outline" class="password-field">
+                <mat-label>Senha atual</mat-label>
+                <input matInput type="password" formControlName="password" />
+                <mat-icon matSuffix>key</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="password-field">
+                <mat-label>Nova senha</mat-label>
+                <input matInput type="password" formControlName="contifmPassword" />
+                <mat-icon matSuffix>key</mat-icon>
+                <mat-hint>
+                    Mínimo de 8 caracteres. Deve incluir números, letras e caracteres especiais.
+                </mat-hint>
+            </mat-form-field>
+
+            <div class="actions">
+                <button mat-raised-button color="primary" (click)="changePassword()">
+                    Salvar alteração de Senha
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <div class="section">
+        <h2>Preferências de segurança</h2>
+        <p>Mantenha sua conta mais segura com as seguintes preferências.</p>
+
+        <div class="preference">
+            <span>Ativar autenticação em 2 etapas</span>
+            <mat-slide-toggle [(ngModel)]="enable2FA" (change)="toggle2FA()"></mat-slide-toggle>
+        </div>
+    </div>
+
+</mat-card>

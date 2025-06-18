@@ -1,0 +1,28 @@
+<div class="avatar-upload-container">
+    <mat-card>
+        <h2>Atualizar Avatar</h2>
+        <div class="cropper-wrapper">
+            <!-- Input file escondido -->
+            <input #fileInput type="file" accept="image/*" (change)="fileChangeEvent($event)"
+                class="hidden-file-input" />
+
+            <!-- Botão estilizado -->
+            <button mat-raised-button color="accent" (click)="fileInput.click()">
+                Escolher Arquivo
+            </button>
+        </div>
+
+        <image-cropper *ngIf="imageChangedEvent" [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
+            [aspectRatio]="1 / 1" [resizeToWidth]="200" [roundCropper]="true" format="png"
+            (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded($event)" (cropperReady)="cropperReady()"
+            (loadImageFailed)="loadImageFailed()"></image-cropper>
+
+        <div *ngIf="croppedImage" class="cropped-preview">
+            <img [src]="croppedImage" alt="Cropped Avatar" />
+        </div>
+
+        <button mat-raised-button color="primary" (click)="uploadAvatar()">
+            Salvar Avatar
+        </button>
+    </mat-card>
+</div>

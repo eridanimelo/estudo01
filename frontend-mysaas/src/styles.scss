@@ -1,0 +1,370 @@
+@use 'styles/layout' as *;
+@use 'styles/toolbar' as *;
+@use 'styles/menu' as *;
+@use '@angular/material' as mat;
+
+
+body {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+
+
+}
+
+.layout-app {}
+
+
+html {
+    @include mat.theme((color: mat.$azure-palette,
+            typography: Roboto,
+        ));
+}
+
+
+.dark-theme {
+    @include mat.theme((color: (primary: mat.$azure-palette,
+                theme-type: dark,
+            ),
+        ),
+        $overrides: ("background": #24292e));
+}
+
+.accent {
+    @include mat.theme((color: mat.$magenta-palette,
+        ));
+}
+
+.warn {
+    @include mat.theme((color: mat.$red-palette,
+        ));
+}
+
+// Estilos adicionais
+body {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+
+    .custom-toolbar {
+        background-color: var(--toolbar-bg-color);
+        color: var(--text-color);
+    }
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.app-spacer {
+    flex: 1 1 auto;
+}
+
+.full-width {
+    width: 100%;
+    // margin-bottom: 16px;
+}
+
+mat-toolbar {
+    margin-bottom: 20px;
+}
+
+mat-card {
+    margin-bottom: 20px;
+    padding: 16px;
+}
+
+table {
+    width: 100%;
+}
+
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.actions h2 {
+    margin: 0;
+}
+
+.actions button {
+    flex-shrink: 0;
+}
+
+/* styles.css */
+
+@media (max-width: 768px) {
+    .hide-on-small {
+        display: none;
+    }
+
+    .small-cell {
+        font-size: 12px;
+        padding: 0;
+    }
+
+    .small-button {
+        height: 32px;
+        width: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hide-on-extra-small {
+        display: none;
+    }
+}
+
+/* Modo escuro - padrão */
+.settingmy {
+    height: 100vh;
+    overflow-x: hidden;
+    width: auto;
+
+    /* Impede o overflow horizontal */
+}
+
+.settingmy .mat-drawer {
+    height: 100%;
+    /* Alinha com o container */
+    width: 350px;
+    /* Largura fixa */
+    min-width: 250px;
+    /* Para layouts responsivos */
+    overflow-y: auto;
+    /* Permite rolagem interna */
+    overflow-x: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Manter aparência */
+}
+
+
+.settingmy .panel-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow-y: auto;
+    max-height: calc(100vh - 150px);
+}
+
+/* Header */
+.settingmy .drawer-header {
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.settingmy .drawer-title h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-left: 20px;
+}
+
+.settingmy .close-button {
+    background-color: transparent;
+}
+
+.settingmy .panel-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow-y: auto;
+    max-height: calc(100vh - 150px);
+}
+
+.settingmy .panel-link {
+    padding: 1rem;
+    margin: 0px 14px 0px 14px;
+    border-radius: 8px;
+    background-color: var(--mat-sys-primary-container);
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.dark-theme .settingmy .panel-link {
+    background: #363b40;
+}
+
+.settingmy .panel-link:hover {
+    background-color: var(--toolbar-bg-color);
+}
+
+.settingmy .panel-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.settingmy .panel-description {
+    font-size: 0.9rem;
+}
+
+
+.settingmy mat-drawer-container {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.settingmy mat-drawer-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.settingmy .panel-header h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.settingmy .settings-panel {
+    padding: 24px;
+}
+
+@media (max-width: 768px) {
+    .settingmy .mat-drawer {
+        width: 200px;
+    }
+
+    .settingmy .panel-link {
+        font-size: 0.9rem;
+    }
+
+    .settingmy .panel-header h3 {
+        font-size: 1.2rem;
+    }
+
+    .settingmy .main-content {
+        flex-grow: 1;
+        padding: 0.5rem;
+    }
+}
+
+.mat-drawer-fixed {
+    position: relative;
+    height: 100%;
+}
+
+
+.security-container {
+
+    margin: 0 auto;
+    padding: 24px;
+
+    border-radius: 12px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+
+    h1 {
+        font-size: 24px;
+        margin-bottom: 24px;
+
+    }
+
+    .section {
+        margin-bottom: 32px;
+
+        h2 {
+            font-size: 20px;
+            margin-bottom: 8px;
+
+        }
+
+        p {
+            font-size: 14px;
+            margin-bottom: 16px;
+
+        }
+
+        .password-field {
+            width: 100%;
+            margin-bottom: 16px;
+
+            mat-hint {
+                font-size: 12px;
+                color: #8b9aba;
+            }
+        }
+
+        .preference {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+
+            span {
+                font-size: 14px;
+                color: #3c4e6b;
+            }
+        }
+    }
+
+    .actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
+
+        button {
+            text-transform: none;
+        }
+    }
+}
+
+.settings-account {
+
+    mat-card {
+        padding: 16px;
+        margin: 16px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        margin-bottom: 8px;
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    h3 {
+        margin-top: 32px;
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    mat-form-field {
+        width: 100%;
+    }
+
+    div[style*='display: flex'] {
+        flex-wrap: wrap;
+    }
+
+    button {
+        margin: 8px 0;
+    }
+
+    button[mat-raised-button] {
+        padding: 8px 16px;
+    }
+
+    .actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
+
+        button {
+            text-transform: none;
+        }
+    }
+
+}
+
+.dialog-title {
+    padding: 12px 0 0 24px;
+}

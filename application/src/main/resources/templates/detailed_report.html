@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Relatório Detalhado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        header img {
+            width: 150px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .section {
+            margin: 30px 0;
+        }
+
+        .section h2 {
+            color: #555;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <center>
+            <img th:src="${logoBase64}" alt="Logo" />
+        </center>
+
+        <h1 th:text="'Relatório de ' + ${title}"></h1>
+    </header>
+
+    <div class="section">
+        <h2>Resumo</h2>
+        <p th:text="${summary}"></p>
+    </div>
+
+    <div class="section">
+        <h2>Seção 1: Informações Gerais</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.</p>
+    </div>
+
+    <div class="section">
+        <h2>Seção 2: Dados Tabelados</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th th:text="${header1}"></th>
+                    <th th:text="${header2}"></th>
+                    <th th:text="${header3}"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="row : ${rows}">
+                    <td th:text="${row.col1}"></td>
+                    <td th:text="${row.col2}"></td>
+                    <td th:text="${row.col3}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>Seção 3: Considerações Finais</h2>
+        <p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+    </div>
+</body>
+
+</html>

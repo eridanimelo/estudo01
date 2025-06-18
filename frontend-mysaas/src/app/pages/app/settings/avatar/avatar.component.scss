@@ -1,0 +1,87 @@
+.avatar-upload-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+
+    mat-card {
+        width: 400px;
+        padding: 20px;
+        text-align: center;
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: #333;
+        }
+    }
+
+    .cropper-wrapper {
+        margin-bottom: 20px;
+
+        // Input file escondido
+        input[type="file"] {
+            display: none;
+        }
+
+        // Botão estilizado
+        button {
+            margin-top: 10px;
+            display: block;
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        image-cropper {
+            display: block;
+            margin: 10px auto;
+            max-width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+    }
+
+    .cropped-preview {
+        margin: 20px 0;
+
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #007bff;
+        }
+    }
+
+    button {
+        width: 100%;
+        font-size: 1rem;
+    }
+}
+
+// Classe adicional para esconder o input file
+.hidden-file-input {
+    display: none;
+}
+
+.custom-cropper .cropper-canvas {
+    /* Ajustando a área fora do cropper */
+    filter: brightness(0.5) contrast(1.5);
+    /* Aumenta o contraste e reduz o brilho */
+}
+
+.custom-cropper .cropper-area {
+    /* Ajustando a área selecionada (a área de corte) */
+    border: 2px solid #007bff;
+    /* Exemplo de borda personalizada para a área de corte */
+}
+
+.custom-cropper .cropper-mask {
+    /* Estilizando a máscara que cobre a área não selecionada */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Cor mais intensa com maior opacidade */
+    mix-blend-mode: multiply;
+    /* Faz a cor da máscara se misturar com a imagem */
+}

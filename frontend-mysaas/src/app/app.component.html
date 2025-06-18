@@ -1,0 +1,29 @@
+<div [class.light-theme]="!isDarkTheme" [class.dark-theme]="isDarkTheme">
+  @if(!isPublicRoute){
+  <mat-drawer-container class="layout" autosize>
+
+    <mat-drawer #drawer class="sidenav" [class.opened]="drawer.opened" [class.closed]="!drawer.opened"
+      [mode]="isHandset ? 'over' : 'side'" [opened]="!isHandset || isSidenavOpened">
+
+      <app-menu></app-menu>
+
+    </mat-drawer>
+
+    <mat-drawer-content>
+
+      <app-toolbar [drawer]="drawer" [username]="username"></app-toolbar>
+      <div class="main-content">
+        <main [@routeAnimations]="getRouteAnimationData()" class="content">
+          <router-outlet></router-outlet>
+        </main>
+      </div>
+
+    </mat-drawer-content>
+  </mat-drawer-container>
+  }
+  @if(isPublicRoute){
+  <div [@routeAnimations]="getRouteAnimationData()" class="layout-app">
+    <router-outlet></router-outlet>
+  </div>
+  }
+</div>

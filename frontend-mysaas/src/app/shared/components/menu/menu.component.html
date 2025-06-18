@@ -1,0 +1,48 @@
+<div class="logo">
+
+</div>
+
+<nav class="navmen">
+    <ul>
+        <li *ngFor="let item of visibleMenuItems">
+            <!-- Se o item tiver filhos, exibe o submenu -->
+            <ng-container *ngIf="item.children?.length; else singleLink">
+                <a class="menu-item" (click)="toggleSubmenu(item)" [class.active]="item.isActive">
+                    {{ item.name }}
+                    <mat-icon class="menu-icon">
+                        {{ item.isExpanded ? 'expand_less' : 'expand_more' }}
+                    </mat-icon>
+                </a>
+                <ul *ngIf="item.isExpanded" class="submenu" @submenuAnimation>
+                    <li *ngFor="let child of item.children">
+                        <a class="submenu-item" [routerLink]="child.route" routerLinkActive="active"
+                            [routerLinkActiveOptions]="{ exact: true }" (click)="removeActiveFromOtherItems(item)">
+                            {{ child.name }}
+                        </a>
+                    </li>
+                </ul>
+            </ng-container>
+
+            <!-- Link único -->
+            <ng-template #singleLink>
+                <a class="menu-item" [routerLink]="item.route" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: true }" (click)="removeActiveFromOtherItems(item)">
+                    {{ item.name }}
+                    <mat-icon class="menu-icon"></mat-icon>
+                </a>
+            </ng-template>
+        </li>
+    </ul>
+</nav>
+
+<mat-divider></mat-divider><br />
+
+<div class="logout-button">
+    <a class="logout-link" (click)="onLogout()">
+        <mat-icon>logout</mat-icon>
+        Logout
+    </a>
+</div>
+
+<br />
+<mat-divider></mat-divider><br />

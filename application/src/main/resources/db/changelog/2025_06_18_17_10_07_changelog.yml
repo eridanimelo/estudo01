@@ -1,0 +1,338 @@
+databaseChangeLog:
+- changeSet:
+    id: 1750266608861-1
+    author: eridanimelo (generated)
+    changes:
+    - createSequence:
+        incrementBy: 1
+        sequenceName: seq_audit
+        startValue: 1
+- changeSet:
+    id: 1750266608861-2
+    author: eridanimelo (generated)
+    changes:
+    - createSequence:
+        incrementBy: 1
+        sequenceName: seq_avatar
+        startValue: 1
+- changeSet:
+    id: 1750266608861-3
+    author: eridanimelo (generated)
+    changes:
+    - createSequence:
+        incrementBy: 1
+        sequenceName: seq_faq
+        startValue: 1
+- changeSet:
+    id: 1750266608861-4
+    author: eridanimelo (generated)
+    changes:
+    - createSequence:
+        incrementBy: 1
+        sequenceName: seq_user
+        startValue: 1
+- changeSet:
+    id: 1750266608861-5
+    author: eridanimelo (generated)
+    changes:
+    - createSequence:
+        incrementBy: 1
+        sequenceName: seq_user_root
+        startValue: 1
+- changeSet:
+    id: 1750266608861-6
+    author: eridanimelo (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: REVINFOPK
+            name: id
+            type: BIGINT
+        - column:
+            name: timestamp
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: USERNAME
+            type: VARCHAR(255)
+        tableName: REVINFO
+- changeSet:
+    id: 1750266608861-7
+    author: eridanimelo (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: avatarPK
+            name: id
+            type: BIGINT
+        - column:
+            name: tipo
+            type: VARCHAR(255)
+        - column:
+            name: bytes
+            type: BYTEA
+        - column:
+            name: user_id
+            type: BIGINT
+        tableName: avatar
+- changeSet:
+    id: 1750266608861-8
+    author: eridanimelo (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: faqPK
+            name: id
+            type: BIGINT
+        - column:
+            name: answer
+            type: VARCHAR(255)
+        - column:
+            name: question
+            type: VARCHAR(255)
+        tableName: faq
+- changeSet:
+    id: 1750266608861-9
+    author: eridanimelo (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: REV
+            type: BIGINT
+        - column:
+            name: REVTYPE
+            type: SMALLINT
+        - column:
+            name: answer
+            type: VARCHAR(255)
+        - column:
+            name: question
+            type: VARCHAR(255)
+        tableName: faq_aud
+- changeSet:
+    id: 1750266608861-10
+    author: eridanimelo (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: REV
+            type: BIGINT
+        - column:
+            name: REVTYPE
+            type: SMALLINT
+        - column:
+            name: email
+            type: VARCHAR(255)
+        - column:
+            name: id_keycloak
+            type: VARCHAR(255)
+        - column:
+            name: name
+            type: VARCHAR(255)
+        - column:
+            name: tel
+            type: VARCHAR(255)
+        - column:
+            name: user_root_id
+            type: BIGINT
+        tableName: user_aud
+- changeSet:
+    id: 1750266608861-11
+    author: eridanimelo (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: user_rootPK
+            name: id
+            type: BIGINT
+        - column:
+            name: email
+            type: VARCHAR(255)
+        - column:
+            name: id_keycloak
+            type: VARCHAR(255)
+        - column:
+            name: subdomain
+            type: VARCHAR(255)
+        tableName: user_root
+- changeSet:
+    id: 1750266608861-12
+    author: eridanimelo (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: REV
+            type: BIGINT
+        - column:
+            name: REVTYPE
+            type: SMALLINT
+        - column:
+            name: email
+            type: VARCHAR(255)
+        - column:
+            name: id_keycloak
+            type: VARCHAR(255)
+        - column:
+            name: subdomain
+            type: VARCHAR(255)
+        tableName: user_root_aud
+- changeSet:
+    id: 1750266608861-13
+    author: eridanimelo (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: usersPK
+            name: id
+            type: BIGINT
+        - column:
+            name: email
+            type: VARCHAR(255)
+        - column:
+            name: id_keycloak
+            type: VARCHAR(255)
+        - column:
+            name: name
+            type: VARCHAR(255)
+        - column:
+            name: tel
+            type: VARCHAR(255)
+        - column:
+            name: user_root_id
+            type: BIGINT
+        tableName: users
+- changeSet:
+    id: 1750266608861-14
+    author: eridanimelo (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: REV, id
+        constraintName: faq_audPK
+        tableName: faq_aud
+- changeSet:
+    id: 1750266608861-15
+    author: eridanimelo (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: REV, id
+        constraintName: user_audPK
+        tableName: user_aud
+- changeSet:
+    id: 1750266608861-16
+    author: eridanimelo (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: REV, id
+        constraintName: user_root_audPK
+        tableName: user_root_aud
+- changeSet:
+    id: 1750266608861-17
+    author: eridanimelo (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: user_id
+        baseTableName: avatar
+        constraintName: FK_AVATAR_USER
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: users
+        validate: true
+- changeSet:
+    id: 1750266608861-18
+    author: eridanimelo (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: user_root_id
+        baseTableName: users
+        constraintName: FK_USER_USER_ROOT
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: user_root
+        validate: true
+- changeSet:
+    id: 1750266608861-19
+    author: eridanimelo (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: REV
+        baseTableName: faq_aud
+        constraintName: FKmimgpehyxbsluyvrg2ebwlndo
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: REVINFO
+        validate: true
+- changeSet:
+    id: 1750266608861-20
+    author: eridanimelo (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: REV
+        baseTableName: user_root_aud
+        constraintName: FKnsc8n9vsolxjqpug6xrf312xt
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: REVINFO
+        validate: true
+- changeSet:
+    id: 1750266608861-21
+    author: eridanimelo (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: REV
+        baseTableName: user_aud
+        constraintName: FKtmp7oja5fhwwuxqxlr81wbm2o
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: REVINFO
+        validate: true
+

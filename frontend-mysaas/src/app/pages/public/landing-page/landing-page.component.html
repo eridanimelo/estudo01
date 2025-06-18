@@ -1,0 +1,105 @@
+<header class="main-header">
+    <nav class="navbar">
+        <div class="logo-land">
+
+        </div>
+
+        <!-- Ícone de hambúrguer (visível em telas pequenas) -->
+        <div class="hamburger-menu" (click)="toggleMenu()">
+            <span class="hamburger-icon">&#9776;</span>
+        </div>
+
+        <!-- Menu de navegação -->
+        <ul class="menu" [ngClass]="{'show': menuVisible}">
+            <li><a href="#" (click)="scrollTo('inicio'); closeMenu()">Início</a></li>
+            <li><a href="#" (click)="scrollTo('contato'); closeMenu()">Contato</a></li>
+            <li><a href="#" (click)="scrollTo('planos'); closeMenu()">Planos</a></li>
+        </ul>
+
+        <!-- Botões de autenticação -->
+        <div class="auth-buttons">
+            <button mat-button class="login-button" [routerLink]="['/app']">Área do Cliente</button>
+            <button mat-raised-button class="signup-button" [routerLink]="['/register']">Cadastre-se</button>
+        </div>
+    </nav>
+</header>
+
+<section id="inicio" class="inicio-section">
+    <h1>Gerencie suas demandas e tarefas com facilidade</h1>
+    <p>Organize projetos, acompanhe prazos e otimize a produtividade da sua equipe em um único lugar.</p>
+    <button mat-raised-button class="cta-button" (click)="scrollTo('hero')">Mais</button>
+</section>
+
+<!-- Hero section -->
+<section id="hero" class="hero-section">
+    <h1 class="fade-in">Transforme sua gestão com agilidade e eficiência</h1>
+    <p class="fade-in">Com o Meu Projeto, simplifique o gerenciamento de tarefas e aumente a colaboração em equipe.</p>
+    <button mat-raised-button class="cta-button fade-in">Experimente Gratuitamente</button>
+</section>
+
+<section id="contato" class="contact-section ">
+    <h1 class="fade-in">Contato</h1>
+    <p><strong>E-mail:</strong> suportetask.com</p>
+
+    <p>
+        <a href="https://wa.me/5511999999999" target="_blank" class="phone-link">
+            <img src="assets/images/icons/whatsapp.png" alt="WhatsApp" width="24" height="24">
+            <span class="phone-number">+55 11 99999-9999</span>
+        </a>
+    </p>
+</section>
+
+<div class="land-container">
+    <br /><br /><br />
+
+
+    <section class="destaque-section">
+        <h2>Aumente sua produtividade. Comece a usar <strong>Meu Projeto</strong> hoje.</h2><br />
+        <button mat-button>Cadastre-se Gratuitamente</button>
+    </section>
+    <br /><br />
+    <section class="faq">
+        <h2>Perguntas Frequentes</h2><br />
+        <mat-accordion>
+            <mat-expansion-panel *ngFor="let faq of faqs">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{ faq.question }}
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <p>{{ faq.answer }}</p>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </section>
+    <br /><br />
+</div>
+
+<footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <br />
+            <p>Simplificando sua gestão de demandas e tarefas.</p>
+        </div>
+        <div class="footer-links">
+            <h3>Links Rápidos</h3>
+            <ul>
+                <li><a href="#" (click)="scrollTo('inicio')">Início</a></li>
+                <li><a href="#" (click)="scrollTo('contato')">Contato</a></li>
+                <li><a href="#" (click)="scrollTo('planos')">Planos</a></li>
+                <li><a href="#">Política de Privacidade</a></li>
+            </ul>
+        </div>
+        <div class="footer-contact">
+            <h3>Contato</h3>
+            <p><strong>E-mail:</strong> suportetask.com</p>
+            <p>
+                <a href="https://wa.me/5511999999999" target="_blank">
+                    <img src="assets/images/icons/whatsapp.png" alt="WhatsApp" width="24" height="24"> +55 11 99999-9999
+                </a>
+            </p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 meuprojeto.com Todos os direitos reservados.</p>
+    </div>
+</footer>

@@ -1,0 +1,25 @@
+.security-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.password-field {
+    width: 100%;
+}
+
+.preference {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

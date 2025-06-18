@@ -1,0 +1,32 @@
+<h2 mat-dialog-title>{{ data.action === 'create' ? 'Criar FAQ' : 'Editar FAQ' }}</h2>
+
+<form [formGroup]="faqForm" (ngSubmit)="onSave()">
+    <mat-dialog-content>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Pergunta</mat-label>
+            <input matInput formControlName="question" />
+            <mat-error *ngIf="faqForm.get('question')?.hasError('required')">
+                A pergunta é obrigatória.
+            </mat-error>
+            <mat-error *ngIf="faqForm.get('question')?.hasError('minlength')">
+                A pergunta deve ter no mínimo 5 caracteres.
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Resposta</mat-label>
+            <textarea matInput formControlName="answer"></textarea>
+            <mat-error *ngIf="faqForm.get('answer')?.hasError('required')">
+                A resposta é obrigatória.
+            </mat-error>
+            <mat-error *ngIf="faqForm.get('answer')?.hasError('minlength')">
+                A resposta deve ter no mínimo 10 caracteres.
+            </mat-error>
+        </mat-form-field>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+        <button mat-button (click)="onCancel()">Cancelar</button>
+        <button mat-raised-button color="primary" [disabled]="faqForm.invalid">Salvar</button>
+    </mat-dialog-actions>
+</form>
